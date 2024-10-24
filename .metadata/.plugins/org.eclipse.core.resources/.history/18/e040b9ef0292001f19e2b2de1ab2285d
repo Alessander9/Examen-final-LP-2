@@ -1,0 +1,56 @@
+package pe.com.cibertec.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import lombok.RequiredArgsConstructor;
+import pe.com.cibertec.model.entity.CategoriaEntity;
+import pe.com.cibertec.model.entity.ProductoEntity;
+import pe.com.cibertec.service.CategoriaService;
+import pe.com.cibertec.service.ProductoService;
+
+@Controller
+@RequestMapping("/producto")
+@RequiredArgsConstructor
+public class ProductoController {
+    
+    private final ProductoService productoService;
+    private final CategoriaService categoriaService;
+
+    @Autowired
+    public ProductoController(ProductoService productoService, CategoriaService categoriaService) {
+        this.productoService = productoService;
+        this.categoriaService = categoriaService;
+    }
+
+    // Mostrar lista de productos
+    @GetMapping("/")
+    public String listarProducto(Model model) {
+        List<ProductoEntity> listaProducto = productoService.buscarTodosProductos();
+        model.addAttribute("listaprod", listaProducto);
+        return "lista_productos"; // Corresponde a lista_productos.html
+    }
+    
+    // Mostrar formulario de creación de productos
+    @GetMapping("/producto/crear_producto")
+    public String mostrarCrearProducto(Model model) {
+        List<CategoriaEntity> listaCategorias = categoriaService.listarCategoria();
+        model.addAttribute("producto", new ProductoEntity());
+        model.addAttribute("listaCategorias", listaCategorias);
+        return "crear_producto"; // Corresponde a crear_producto.html
+    }
+
+    // Guardar producto creado
+    @PostMapping("/producto/crear_producto")
+    public String registrarProducto(@ModelAttribute("producto") ProductoEntity producto) {
+        productoService.crearProducto(producto);
+        return "redirect:/producto/"; // Redirige a la lista de productos después del registro
+    }
+}

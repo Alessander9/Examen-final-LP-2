@@ -1,0 +1,12 @@
+package pe.com.cibertec.model.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tb_usuario")
+public class UsuarioEntity {
+	
+	
+
+}

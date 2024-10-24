@@ -1,0 +1,68 @@
+package pe.com.cibertec.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import pe.com.cibertec.model.entity.CategoriaEntity;
+import pe.com.cibertec.repository.CategoriaRepository;
+import pe.com.cibertec.service.CategoriaService;
+
+
+@Service
+public class CategoriaServiceImpl implements CategoriaService {
+
+	
+	package pe.com.cibertec.service.impl;
+
+	import java.util.List;
+	import java.util.Optional;
+
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.stereotype.Service;
+	import pe.com.cibertec.model.entity.CategoriaEntity;
+	import pe.com.cibertec.repository.CategoriaRepository;
+	import pe.com.cibertec.service.CategoriaService;
+
+	@Service
+	public class CategoriaServiceImpl implements CategoriaService {
+
+	    @Autowired
+	    private CategoriaRepository categoriaRepository;
+
+	    // Obtener todas las categorías
+	    @Override
+	    public List<CategoriaEntity> buscarTodasCategorias() {
+	        return categoriaRepository.findAll();
+	    }
+
+	    // Obtener una categoría por su ID
+	    @Override
+	    public CategoriaEntity obtenerCategoriaPorId(Long id) {
+	        Optional<CategoriaEntity> categoria = categoriaRepository.findById(id);
+	        return categoria.orElse(null); // Retorna la categoría si existe, sino retorna null
+	    }
+
+	    // Crear una nueva categoría
+	    @Override
+	    public CategoriaEntity crearCategoria(CategoriaEntity categoria) {
+	        return categoriaRepository.save(categoria);
+	    }
+
+	    // Actualizar una categoría existente
+	    @Override
+	    public CategoriaEntity actualizarCategoria(CategoriaEntity categoria) {
+	        return categoriaRepository.save(categoria); // save() actualiza si ya existe
+	    }
+
+	    // Eliminar una categoría por su ID
+	    @Override
+	    public void eliminarCategoria(Long id) {
+	        categoriaRepository.deleteById(id);
+	    }
+	}
+
+	
+
+}

@@ -1,0 +1,27 @@
+package pe.com.cibertec.model.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@Entity
+@Table(name = "tb_producto")
+public class ProductoEntity {
+
+	@Id
+	@Column(name = "ID", nullable = false, length = 60)
+	private int id_producto;
+	
+	@Column(name = "Nombre Producto", nullable = false, length = 60)
+	private String nombreProducto;
+	
+}

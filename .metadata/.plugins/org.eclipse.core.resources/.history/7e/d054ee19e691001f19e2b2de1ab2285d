@@ -1,0 +1,21 @@
+package pe.com.cibertec.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+import pe.com.cibertec.repository.ProductoRepository;
+import pe.com.cibertec.service.ProductoService;
+import pe.com.cibertec.model.entity.ProductoEntity;
+
+
+@Service
+@RequiredArgsConstructor
+public class ProductoServiceImpl implements ProductoService{
+
+	private final ProductoRepository productoRepository;
+	
+	
+}

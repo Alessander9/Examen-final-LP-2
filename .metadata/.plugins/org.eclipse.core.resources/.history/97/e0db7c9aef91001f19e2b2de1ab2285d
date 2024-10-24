@@ -1,0 +1,11 @@
+package pe.com.cibertec.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import pe.com.cibertec.service.CategoriaService;
+
+@Service
+public class CategoriaServiceImpl implements CategoriaService {
+	
+
+}

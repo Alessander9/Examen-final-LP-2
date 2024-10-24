@@ -1,0 +1,7 @@
+package pe.com.cibertec.service.impl;
+
+import pe.com.cibertec.service.ProductoService;
+
+public class ProductoServiceImpl implements ProductoService{
+
+}

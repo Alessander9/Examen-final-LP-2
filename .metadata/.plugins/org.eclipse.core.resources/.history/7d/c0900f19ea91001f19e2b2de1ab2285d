@@ -1,0 +1,6 @@
+package pe.com.cibertec.service;
+
+
+public interface CategoriaService {
+		List<CategoriaEntity> listarCategoria();
+}

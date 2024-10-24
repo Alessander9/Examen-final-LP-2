@@ -1,0 +1,5 @@
+package pe.com.cibertec.service.impl;
+
+public class CategoriaServiceImpl {
+
+}

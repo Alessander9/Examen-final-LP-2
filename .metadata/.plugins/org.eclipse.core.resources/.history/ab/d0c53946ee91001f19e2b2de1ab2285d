@@ -1,0 +1,12 @@
+package pe.com.cibertec.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import pe.com.cibertec.model.entity.CategoriaEntity;
+
+@Service
+public interface CategoriaService {
+		List<CategoriaEntity> listarCategoria();
+}
